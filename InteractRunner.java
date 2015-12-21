@@ -5,54 +5,37 @@ public class InteractRunner {
 	public String first;
 	public String second;
 	public String operation;
-	public int num1;
-	public int num2;
+	public double num1;
+	public double num2;
 	
 	Scanner scan = new Scanner(System.in);
-	Calculator calc = new Calculator();
+	Calculator calculator = new Calculator();
 	
+	//input method
 	public void inputNumbers(){
-		while(!exit.equals("Yes")){
-			if (clearResult.equals("Yes")){
-				num1 = calc.getResult();
-			}else{
-				System.out.println("Input first argument: ");
-				first = scan.nextLine();
-				num1 = Integer.valueOf(first);
-				System.out.println("Input second argument: ");
-				second = scan.nextLine();
-			    num2 = Integer.valueOf(second);
-			}
-		}
-	}
+		while(true){
+			if(!calculator.isSave()){
+				System.out.println("Enter the first number: ");
+				num1 = scan.nextDouble();
+				System.out.println("Enter the second number: ");
+				num2 = scan.nextDouble();
+				System.out.println("Result: " + calculator.calculator());
+			}}}
 	
-	public void chooseOperations(){
-		switch(operation){
-		case "+":
-			calc.plus(num1, num2);
-		    break;
-		case "-":
-			calc.minus(num1, num2);
-			break;
-		case ":":
-			calc.div(num1, num2);
-			break;
-		case "*":
-			calc.multiply(num1, num2);
-			break;
-		}
-		System.out.println(calc.getResult());
-	}
-	
+	//result method
 	public void result(){
 		clearResult = scan.next();
 		if(clearResult.equals("No"))
-			calc.clearResult();
+			calculator.clearResult();
 	}
 	
+	//exit method
 	public void exit(){
-		System.out.println("Exit: Yes or No");
-		exit = scan.next();
+		if(scan.next().equals("yes")){
+			System.out.println("See you");
+		}else if(!scan.nextLine().equals("nо")){
+			calculator.getResult();
+		}
 	}
 	
 }
