@@ -1,59 +1,28 @@
-public class Calculator {
+package javaKurs;
+
+//class for calcualte numbers
+
+public class Calculator extends AddFunction{
 	
-	private int num1;
-	public int num2;
-	public int result;
-	public boolean save;
-	public String operation;
-	
-	public int getNum1(){
-		return num1;
-	}
-	public void setNum1(int num1){
-		this.num1 = num1;
+	public double add(double num1, double num2){
+		res = num1 + num2;
+		return res;
 	}
 	
-	public double calculator(){
-		switch(operation){
-		case "+":
-			result = num1 + num2;
-		    break;
-		case "-":
-			result = num1 + num2;
-			break;
-		case ":":
-			result = num1 + num2;
-			break;
-		case "*":
-			result = num1 + num2;
-			break;
-		}
-		return result;
+	public double substract(double num1, double num2){
+		res = num1 - num2;
+		return res;
 	}
 	
-	
-	public void clearResult(){
-		this.result = 0;
+	public double multiply(double num1, double num2){
+		res = num1 * num2;
+		return res;
 	}
 	
-	public int getResult(){
-		return result;
+	public double div(double num1, double num2){
+		res = num1 / num2;
+		return res;
 	}
 	
-	public void setResult(int result){
-		this.result = result;
-	}
-	
-	public String getOperation(){
-		return operation;
-	}
-	
-	public void setOperation(String operation){
-		this.operation = operation;
-	}
-	
-	public boolean isSave(){
-		return save;
-	}
 	
 }
